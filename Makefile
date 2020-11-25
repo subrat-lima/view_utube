@@ -1,9 +1,9 @@
 all: utube
 
 utube:
-	chmod +x utube-scraper.py utube.py
+	chmod +x utube_scraper.py utube.py
 	mkdir -p ${HOME}/.local/utube/
-	cp utube-scraper.py ${HOME}/.local/bin/utube-scraper
+	cp utube_scraper.py ${HOME}/.local/bin/utube_scraper.py
 	cp utube.py ${HOME}/.local/bin/utube
 	crontab ./scripts/scrape.cron
 
