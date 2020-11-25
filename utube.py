@@ -5,7 +5,7 @@ import locale
 import subprocess
 
 from curses import wrapper
-from scraper import _DATA, _CHANNEL, getData
+from utube-scraper import _DATA, _CHANNEL, getData
 
 locale.setlocale(locale.LC_ALL, '')
 code = locale.getpreferredencoding()
@@ -53,7 +53,7 @@ def loadVideoList(stdscr, data):
         elif c == ord('l'):
             video_id = data[current]['id']
             # run the user defined script 'utube' to handle the youtube link
-            subprocess.run(['utube', f'https://www.youtube.com/watch?v={video_id}'])
+            subprocess.run(['ytube', f'https://www.youtube.com/watch?v={video_id}'])
 
 def main(stdscr):
     """Start the UI."""

@@ -1,4 +1,4 @@
-#!/usr/bin/py python3
+#!/usr/bin/env python3
 
 """Library imports"""
 import json
@@ -9,8 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 
 """FILE Names"""
-_CHANNEL = 'channels.txt'
-_DATA = 'data.txt'
+_CHANNEL = f'{os.path.expanduser("~")}/.local/utube/channels.txt'
+_DATA = f'{os.path.expanduser("~")}/.local/utube/data.txt'
 
 """Functions"""
 
@@ -74,7 +74,12 @@ def getChannelInfo(channel):
 
 def storeAllChannelsInfo():
     """Store video data of every channel in data.txt."""
-    channels = getData(_CHANNEL)
+    channels = []
+    if os.path.isfile(_CHANNEL):
+        channels = getData(_CHANNEL)
+    else:
+        print('please add a channel to the list before starting app.')
+        return
     data = {}
     for channel in channels:
         data[channel] = getChannelInfo(channel)
@@ -82,5 +87,5 @@ def storeAllChannelsInfo():
 
 if __name__ == '__main__':
     storeAllChannelsInfo()
-    #data = getData(_DATA)
+    #data = getData(_CHANNEL)
     #print(data)

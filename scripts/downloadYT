@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# youtube videos download script.
+# downloads into the $HOME/youtube/[video/audio] folder as per the format
+# external-dependency: aria2c
+
+case "$(printf '360p\n480p\n720p\nopus' | dmenu -i -p 'Download format:')" in
+  360p)
+    youtube-dl '$1' -o '~/youtube/video/%(title)s.%(ext)s' -f 'bestvideo[ext=webm][height<=?360][fps<=?30][vcodec=?vp9]+bestaudio[ext=webm]'  --external-downloader aria2c
+    exit 0;;
+  480p)
+    youtube-dl '$1' -o '~/youtube/video/%(title)s.%(ext)s' -f 'bestvideo[ext=webm][height<=?480][fps<=?30][vcodec=?vp9]+bestaudio[ext=webm]'  --external-downloader aria2c
+    exit 0;;
+  720p)
+    youtube-dl '$1' -o '~/youtube/video/%(title)s.%(ext)s' -f 'bestvideo[ext=webm][height<=?720][fps<=?30][vcodec=?vp9]+bestaudio[ext=webm]'  --external-downloader aria2c
+    exit 0;;
+  opus)
+    youtube-dl '$1' -o '~/youtube/audio/%(title)s.%(ext)s' -f 'bestaudio' --external-downloader aria2c
+    exit 0;;
+esac

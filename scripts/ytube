@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+case "$(printf 'watch\ndownload\n' | dmenu -i -p 'Stream or Download: ')" in
+  "watch")
+    watchYT "$1"
+    exit 0;;
+  "download")
+    "downloadYT '$1' >/dev/null 2>&1"
+    exit 0;;
+esac
