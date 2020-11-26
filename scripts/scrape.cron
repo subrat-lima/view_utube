@@ -1,1 +1,1 @@
-0 8,16 * * * utube-scraper.py >> /home/subrat/.local/utube/cronjob-hist.txt
+0 8,16 * * * utube_scraper.py >> /home/subrat/.local/utube/cronjob-hist.txt
