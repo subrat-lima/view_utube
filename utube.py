@@ -1,3 +1,4 @@
+"""A TUI app to watch most recent videos of selected youtube channels."""
 #!/usr/bin/env python3
 
 import curses
@@ -9,8 +10,6 @@ from curses import wrapper
 from utube_scraper import _DATA, _CHANNEL, getData, addChannel, storeAllChannelsInfo
 
 locale.setlocale(locale.LC_ALL, '')
-code = locale.getpreferredencoding()
-#stdscr = curses.initscr()
 
 def showList(stdscr, data, current):
     """Print the list data on screen."""

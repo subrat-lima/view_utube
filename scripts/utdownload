@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-# youtube videos download script.
-# downloads into the $HOME/youtube/[video/audio] folder as per the format
-# external-dependency: aria2c
+# this script downloads the given youtube link in youtube-dl
+# download folder: $HOME/youtube/video & $HOME/youtube/audio
+# formats: 360p, 480p, 720p, opus(audio)
+# dependencies: dmenu, youtube-dl, aria2c
 
 case "$(printf '360p\n480p\n720p\nopus' | dmenu -i -p 'Download format:')" in
   360p)

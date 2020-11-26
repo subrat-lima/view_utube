@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# this script handles youtube links
+# options available: stream / download
+# dependencies: utwatch, utdownload
+
+case "$(printf 'stream\ndownload\n' | dmenu -i -p 'Stream or Download: ')" in
+  "stream")
+    utwatch "$1" >/dev/null 2>&1
+    exit 0;;
+  "download")
+    utdownload "$1" >/dev/null 2>&1
+    exit 0;;
+esac

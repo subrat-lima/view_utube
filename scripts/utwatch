@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# this script streams the given youtube link in mpv
+# streaming resolutions available: 240p, 360p, 480p
+# dependencies: dmenu, mpv, youtube-dl
+
 case "$(printf '240p\n360p\n480p' | dmenu -i -p 'Streaming resolution: ')" in
   240p)
     mpv --ytdl-format="bestvideo[height<=?240][fps<=?30][vcodec=?vp9]+bestaudio[ext=webm]/best" "$1" >/dev/null 2>&1 &
