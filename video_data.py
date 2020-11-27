@@ -22,13 +22,26 @@ def save_video_info(parsed_data: list) -> None:
     """
     save_data(_DATA_FILE, parsed_data)
 
-def get_video_info() -> list:
+def get_video_info() -> any:
     """Get the video info.
 
     return:
-        [videos info]
+        video-info
     """
     return get_data(_DATA_FILE)
+
+
+def get_video_list(channel: str) -> list:
+    """Get the video list of channel.
+
+    arguments:
+        channel
+
+    return:
+        [video data]
+    """
+    video_list = get_video_info()
+    return video_list[channel]
 
 
 if __name__ == '__main__':

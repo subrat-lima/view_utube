@@ -31,7 +31,7 @@ def scrape_page(channel_id: str) -> None:
     """
     url = _CHANNEL_VIDEO_START + channel_id + _CHANNEL_VIDEO_END
     soup = Soup.get(url)
-    script = soup.find('body').find('script')[1].text
+    script = soup.find('body').find('script')[8].text
     elem = script.strip().split('\n')[0].strip(';')
     elem = loads(elem[elem.index('=')+1:])
     elem = elem['contents']['twoColumnBrowseResultsRenderer']['tabs'][1][
@@ -58,7 +58,10 @@ def filter_video_info(file_name: str) -> list:
         video['id'] = data['videoId']
         video['name'] = data['title']['runs'][0]['text']
         video['date'] = data['publishedTimeText']['simpleText']
-        video['len'] = data['thumbnailOverlays'][0][
+        split_str = video['date'].split()
+        if 'Streamed' in split_str:
+            video['date'] = " ".join(split_str[1:])
+        video['time'] = data['thumbnailOverlays'][0][
                 'thumbnailOverlayTimeStatusRenderer']['text']['simpleText']
         videos_info.append(video)
     return videos_info
@@ -82,8 +85,9 @@ def parse_channels() -> None:
     save_data(_DATA_FILE, video_data)
     for channel in channels:
         file_name = _BASE_DIR + channel + '.json'
-        remove(file_name)
+        if isfile(file_name):
+            remove(file_name)
 
 
 if __name__ == '__main__':
-    pass
+    parse_channels()

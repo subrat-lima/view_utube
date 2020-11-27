@@ -1,21 +1,22 @@
 # utube
-A simple python ncurses app to view suscribed youtube channel videos.
-Doesn't use Youtube API, just basic web parsing.
+Simple TUI app to watch suscribed youtube channel videos.
+
+## Table of contents
+* [Info](#Info)
+* [Technologies](#Technologies)
+* [Setup](#Technologies)
+
+## Info
+**utube** is a basic TUI application to watch youtube videos. Just add the channel links you want to watch, and you are ready to go.
+
+## Technologies
+Built in python3 with *curses*.
+* *curses* - terminal UI
+* *[![scraper: gazpacho](https://img.shields.io/badge/scraper-gazpacho-C6422C)](https://github.com/maxhumber/gazpacho)* - scrape and parse youtube pages
 
 
-## External dependencies
-  *BeautifulSoup* - to parse youtube page
-  *mpv* - to watch youtube video
-  *youtube-dl* - to download youtube video
+## Setup
 
-## usage
-  Simply add the channels that you are interested in. The program runs a cron job every 12 hours to update the data. Watch or download as you like
-
-
-## Installation
-  1) clone the repo
-  2) install BeautifulSoup
-  3) run 'make' from the repo dir
 
 ## Controls
 
