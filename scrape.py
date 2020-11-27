@@ -20,6 +20,21 @@ from config import _CHANNEL_VIDEO_START, _CHANNEL_VIDEO_END
 from storage import get_data, save_data
 
 
+def select_script(scripts):
+    """Select the script with the maximum length."""
+    max_len = len(scripts[0].text)
+    index = 0
+
+    for i in range(1, len(scripts)):
+        l = scripts[i].text
+        if l > max_len:
+            max_len = l
+            index = i
+
+    return scripts[index].text
+
+
+
 def scrape_page(channel_id: str) -> None:
     """Scrape for json data from the given url.
 
@@ -31,7 +46,8 @@ def scrape_page(channel_id: str) -> None:
     """
     url = _CHANNEL_VIDEO_START + channel_id + _CHANNEL_VIDEO_END
     soup = Soup.get(url)
-    script = soup.find('body').find('script')[8].text
+    scripts = soup.find('body').find('script')
+    script = select_script(scripts)
     elem = script.strip().split('\n')[0].strip(';')
     elem = loads(elem[elem.index('=')+1:])
     elem = elem['contents']['twoColumnBrowseResultsRenderer']['tabs'][1][
