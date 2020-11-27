@@ -26,7 +26,7 @@ def select_script(scripts):
     index = 0
 
     for i in range(1, len(scripts)):
-        l = scripts[i].text
+        l = len(scripts[i].text)
         if l > max_len:
             max_len = l
             index = i
