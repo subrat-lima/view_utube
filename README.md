@@ -20,12 +20,11 @@ Built in python3 with *curses*.
 ```python
 
   # install
-  pip install utube
+  pip install view-utube
 
   # run
   utube
 ```
-
 
 ## Controls
 * **j**   Move UP

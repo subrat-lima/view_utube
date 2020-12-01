@@ -17,7 +17,7 @@ setup(
     author="Subrat Lima",
     author_email="subrat.k.lima@protonmail.com",
     name='view_utube',
-    version='0.0.1',
+    version='0.0.2',
     description='browse latest videos of your favorite youtube channels from terminal!',
     package_dir={'':'src'},
     packages=find_packages(where='src'),
