@@ -16,7 +16,7 @@ setup(
     url="https://github.com/subrat-lima/utube",
     author="Subrat Lima",
     author_email="subrat.k.lima@protonmail.com",
-    name='utube',
+    name='view_utube',
     version='0.0.1',
     description='browse latest videos of your favorite youtube channels from terminal!',
     package_dir={'':'src'},
@@ -26,7 +26,7 @@ setup(
     install_requires=["gazpacho"],
     entry_points={
         'console_scripts': [
-            'utube=utube:main',
+            'utube=view_utube:main',
         ],
     },
 )
