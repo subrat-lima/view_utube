@@ -1,1 +1,0 @@
-0 8,16 * * * utube_scraper.py >> /home/subrat/.local/utube/cronjob-hist.txt
