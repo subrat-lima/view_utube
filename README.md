@@ -1,6 +1,8 @@
 # utube
 Simple TUI app to watch suscribed youtube channel videos.
 
+![app functionality](https://ibb.co/N7SSYYx)
+
 ## Table of contents
 * [Info](#Info)
 * [Technologies](#Technologies)
