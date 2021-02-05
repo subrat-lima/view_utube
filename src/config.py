@@ -6,7 +6,7 @@ from curses import A_BOLD, A_STANDOUT
 
 # program to handle the youtube video link
 # change it to the program of your choice
-_LINK_HANDLER = 'utlh'
+_LINK_HANDLER = 'mpv'
 
 # default file path
 _BASE_DIR = f'{expanduser("~")}/.local/utube/'
